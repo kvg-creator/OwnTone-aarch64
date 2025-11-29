@@ -26,7 +26,7 @@ ports_description:
 ingress: false
 ingress_port: 0
 
-webui: "http://[HOST]:[PORT:3689]/"
+webui: "http://[HOST]:[PORT:3689]"
 
 startup: services
 boot: auto
