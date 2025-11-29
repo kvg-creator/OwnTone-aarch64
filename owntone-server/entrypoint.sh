@@ -17,5 +17,5 @@ if [ -f /etc/owntone.conf ]; then
   sed -i 's/^ipv6 *= *yes/ipv6 = no/' /etc/owntone.conf || true
 fi
 
-# Start Owntone i foreground med default config
-exec owntone -f -c /etc/owntone.conf
+# Start Owntone i foreground med default configexec owntone -f
+exec owntone -f
