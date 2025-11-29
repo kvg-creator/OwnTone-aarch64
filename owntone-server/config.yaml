@@ -1,5 +1,5 @@
 name: Owntone server
-version: "0.2.0"
+version: "29.0"
 slug: owntone-server
 description: OwnTone is a DAAP (iTunes) and MPD media server with support for AirPlay, Chromecast, MPD, Spotify and internet radio.
 arch:
