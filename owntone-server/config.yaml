@@ -7,7 +7,8 @@ arch:
   - amd64
   - armv7
 
-image: "owntone/owntone"
+# ❌ Fjern image:-linja helt – da bruker HA Dockerfile i stedet
+# image: "owntone/owntone"
 
 host_network: true
 
@@ -16,6 +17,10 @@ ports:
 
 ports_description:
   3689/tcp: "Owntone web interface / DAAP"
+
+# ✅ Viktig: mappe /share slik at vi har et sikkert skrivbart område på host
+map:
+  - share:rw
 
 ingress: false
 ingress_port: 0
