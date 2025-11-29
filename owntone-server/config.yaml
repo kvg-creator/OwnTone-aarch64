@@ -1,5 +1,5 @@
 name: Owntone server
-version: 0.2.0
+version: "0.2.0"
 slug: owntone-server
 description: OwnTone is a DAAP (iTunes) and MPD media server with support for AirPlay, Chromecast, MPD, Spotify and internet radio.
 arch:
@@ -7,8 +7,7 @@ arch:
   - amd64
   - armv7
 
-# 💡 NØKKELEN: bruk ferdig bygget offisielt image – da slipper vi all bygging
-image: "docker.io/owntone/owntone:latest"
+image: "owntone/owntone"
 
 host_network: true
 
@@ -17,11 +16,6 @@ ports:
 
 ports_description:
   3689/tcp: "Owntone web interface / DAAP"
-
-# Du *kan* mappe share hvis du vil bruke /share inn i containeren senere,
-# men det er ikke nødvendig for å få den opp å gå:
-# map:
-#   - share:rw
 
 ingress: false
 ingress_port: 0
