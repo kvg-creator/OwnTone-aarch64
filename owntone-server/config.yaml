@@ -7,23 +7,19 @@ arch:
   - aarch64
   - amd64
 
-# Vi bruker host_network for at mDNS/AirPlay skal fungere skikkelig
 host_network: true
 host_dbus: false
 host_ipc: false
 
-# Disse portene brukes bare for info/lenker i HA når host_network=true
 ports:
   3689/tcp: 3689
 
 ports_description:
   3689/tcp: "Owntone web interface / DAAP"
 
-# Vi mapper /share slik at du kan lagre database, logg og evt. musikk derfra
 map:
   - share:rw
 
-# Ingress gjør ting mer komplisert pga reverse proxy, så vi bruker ren webui først
 ingress: false
 ingress_port: 0
 
@@ -31,8 +27,7 @@ webui: "http://[HOST]:[PORT:3689]"
 
 startup: services
 boot: auto
-init: false  # Viktig linje for tredjeparts image
+init: false
 
-# Vi lar Supervisor bygge Dockerfile lokalt (ingen ekstern 'image:'-peker)
 options: {}
 schema: {}
