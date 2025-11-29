@@ -31,6 +31,7 @@ webui: "http://[HOST]:[PORT:3689]"
 
 startup: services
 boot: auto
+init: false  # Viktig linje for tredjeparts image
 
 # Vi lar Supervisor bygge Dockerfile lokalt (ingen ekstern 'image:'-peker)
 options: {}
