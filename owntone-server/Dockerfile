@@ -1,12 +1,11 @@
-FROM owntone/owntone:latest
+FROM owntone/owntone:29.0
 
-# Installer avahi-daemon og dbus, som Owntone bruker til mDNS
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends avahi-daemon dbus && \
-    rm -rf /var/lib/apt/lists/*
+# Lag kataloger i /share (som er mappet inn av Home Assistant via map: share:rw)
+RUN mkdir -p /share/owntone/dbase_and_logs \
+    && mkdir -p /share/owntone/music \
+    && rm -rf /var/cache/owntone \
+    && ln -s /share/owntone/dbase_and_logs /var/cache/owntone
 
-# Vår egen entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+# Viktig: la base-image sin init fortsette som før.
+# I owntone/owntone er CMD satt til /sbin/init (OpenRC),
+# så vi trenger ikke å sette ENTRYPOINT/CMD selv – vi arver den.
